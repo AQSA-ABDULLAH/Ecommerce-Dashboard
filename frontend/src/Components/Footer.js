@@ -4,7 +4,7 @@ import './Footer.css';
 export default function Footer() {
   return (
     <div className='footer'>
-        <h4>E-Commers Dashboard 2023 || ALL RIGHT RESERVED</h4>
+        <h5>E-Commers Dashboard 2023 || ALL RIGHT RESERVED</h5>
     </div>
   )
 }

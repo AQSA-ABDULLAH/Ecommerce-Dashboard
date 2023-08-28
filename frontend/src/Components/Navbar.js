@@ -10,7 +10,7 @@ const Navbar = () => {
   };
  
   return (
-    <nav className={`navbar ${isOpen ? 'open' : ''}`}>
+    <nav className={`navBar ${isOpen ? 'open' : ''}`}>
         <div className='nav-container'>
             <h1>LOGO</h1>
             <div className='menu-icon' onClick={toggleNavbar}>
@@ -24,6 +24,7 @@ const Navbar = () => {
                 <li><Link to="/add_new">Add New</Link></li>
                 <li><Link to="/update">Update</Link></li>
                 <li><Link to="/profile">Profile</Link></li>
+                <li><Link to="/signup">Signup</Link></li>
                 <li><Link to="/logout">Logout</Link></li>
             </ul>
         </div>
