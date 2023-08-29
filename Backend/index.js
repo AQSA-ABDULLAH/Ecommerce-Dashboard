@@ -1,8 +1,13 @@
+require('./db/connection');
+const Users = require('./db/Models/Users');
 const express = require('express');
 const app = express();
+app.use(express.json());
 
-app.get("/", (req, res)=>{
-    res.send("Ecommerss Project")
+app.post("/register", async(req, res)=>{
+    let user = new Users(req.body);
+    let result = await user.save();
+    res.send(result);
 });
 
 app.listen(4000);
