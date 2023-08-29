@@ -4,6 +4,7 @@ import './Navbar.css';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const auth = localStorage.getItem('user');
 
   const toggleNavbar = () => {
     setIsOpen(!isOpen);
@@ -24,8 +25,7 @@ const Navbar = () => {
                 <li><Link to="/add_new">Add New</Link></li>
                 <li><Link to="/update">Update</Link></li>
                 <li><Link to="/profile">Profile</Link></li>
-                <li><Link to="/signup">Signup</Link></li>
-                <li><Link to="/logout">Logout</Link></li>
+                <li>{ auth? <Link to="/logout">Logout</Link>:<Link to="/signup">Signup</Link>}</li>
             </ul>
         </div>
     </nav>
