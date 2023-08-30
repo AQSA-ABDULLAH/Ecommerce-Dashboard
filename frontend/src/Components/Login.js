@@ -1,5 +1,6 @@
 import React, { useState, useEffect} from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import './Style.css';
 
 export default function Login() {
     const [email, setEmail] = useState("");
@@ -48,7 +49,7 @@ export default function Login() {
                         value={password}
                         onChange={(e) => setPassword(e.target.value)} />
                 </div>
-                <button type="submit" className="btn btn-primary">Submit</button>
+                <button type="submit" className="btn btn-success">Submit</button>
                 <p className='pt-3'>Don't have an Account yet <Link to='/signup'>SIGN UP</Link></p>
             </form>
         </div>

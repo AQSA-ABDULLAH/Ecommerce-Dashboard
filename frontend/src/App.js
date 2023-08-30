@@ -6,6 +6,7 @@ import Footer from './Components/Footer';
 import Signup from './Components/Signup';
 import PrivateComponent from './Components/PrivateComponent';
 import Login from './Components/Login';
+import Cart from './Components/Cart';
 
 
 function App() {
@@ -14,16 +15,14 @@ function App() {
       <BrowserRouter>
         <Navbar />
         <Routes>
+          <Route exact path="/" element={"Home Dashboard"} />
           <Route element={<PrivateComponent />}>
-            <Route exact path="/" element={"Home Dashboard"} />
-            <Route exact path="/add_new" element={"Add Pages"} />
-            <Route exact path="/update" element={"Update Pages"} />
             <Route exact path="/profile" element={"profile"} />
+            <Route exact path="/cart" element={<Cart/>}/>
             <Route exact path="/logout" element={"Logout Page"} />
           </Route>
-
           <Route exact path="/signup" element={<Signup />} />
-          <Route exact path='/login' element={<Login/>}/>
+          <Route exact path='/login' element={<Login />} />
         </Routes>
         <Footer />
       </BrowserRouter>

@@ -1,10 +1,16 @@
-.navBar{
-    background-color: #333;
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* -----------------  NAVBAR STYLE  -------------- */
+.header{
+    background-color:#198754;
     color: #fff;
-    position: fixed;
     width: 100%;
     top: 0;
     left: 0;
+    position: sticky;
     transition: trandform 0.3s ease-in-out;
     z-index: 100;
 }
@@ -14,6 +20,11 @@
     justify-content: space-between;
     align-items: center;
     padding: 14px 20px;
+}
+
+.logo{
+    text-decoration: none;
+    font-size: 2rem;
 }
 
 .nav-links{
@@ -29,6 +40,7 @@
 
 .nav-links li{
     margin-right: 20px;
+    font-size: 1.15rem;
 }
 
 .nav-links li a{
@@ -36,16 +48,14 @@
     text-decoration: none;
 }
 
-h1{
-    font-size: 2rem;
-}
-
 .menu-icon{
     cursor: pointer;
     display: none;
     flex-direction: column;
     justify-content: space-between;
-    height: 24px;
+    height: 35px;
+    border: 1px solid #c4c4c4;
+    padding: 7px;
 }
 
 .bar{
@@ -69,7 +79,6 @@ h1{
     .menu-icon{
         display: flex;
     }
-
     .nav-links{
         display: none;
         flex-direction: column;
@@ -82,13 +91,42 @@ h1{
         border-top: 2px solid #fff;
         padding-top: 14px;
     }
-
     .nav-links li{
         padding-bottom: 18px;
         font-weight: 600;
     }
-
     .nav-links .open{
         display: flex;
     }
+}
+
+/* -----------------------    FOOTER STYLE    -------------------- */
+.footer{
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    background-color:#198754;
+    color: #fff;
+    padding: 15px 0px;
+    margin: 0px;
+}
+
+/* ------------------------     SIGN UP/IN STYLE    -------------------- */
+.container{
+    margin-top: 2.2rem;
+    margin-bottom: 2.1rem;
+    padding: 0.8rem 3.5rem ;
+    border: 0.16rem solid #bebcbc;
+    border-radius: 0.5rem;
+    width: 36%;
+    text-align: center;
+}
+
+#login{
+    margin-top: 4.9rem;
+    margin-bottom: 4.8rem;
+}
+
+form{
+    text-align: left;
 }

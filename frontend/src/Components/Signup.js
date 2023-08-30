@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import './Signup.css';
+import './Style.css';
 
 export default function Signup() {
   const [name, setName] = useState("");
@@ -51,7 +51,7 @@ export default function Signup() {
             value={password}
             onChange={(e) => setPassword(e.target.value)} />
         </div>
-        <button type="submit" className="btn btn-primary">Submit</button>
+        <button type="submit" className="btn btn-success">Submit</button>
         <p className='pt-3'>Already Have an Account <Link to='/'>SIGN IN</Link></p>
       </form>
     </div>

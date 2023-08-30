@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import './Navbar.css';
+import './Style.css';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,27 +17,29 @@ const Navbar = () => {
   };
 
   return (
-    <nav className={`navBar ${isOpen ? 'open' : ''}`}>
+    <nav className={`header ${isOpen ? 'open' : ''}`}>
       <div className='nav-container'>
-        <h1>LOGO</h1>
-        <div className='menu-icon' onClick={toggleNavbar}>
+        <Link className="logo text-white font-italic" to="/">FoodFrenzy</Link>
+        <div className='menu-icon ' onClick={toggleNavbar}>
           <div className={`bar ${isOpen ? 'open' : ''}`}></div>
           <div className={`bar ${isOpen ? 'open' : ''}`}></div>
           <div className={`bar ${isOpen ? 'open' : ''}`}></div>
         </div>
 
         <ul className={`nav-links ${isOpen ? 'open' : ''}`}>
-          <li><Link to="/">Products</Link></li>
-          <li><Link to="/add_new">Add New</Link></li>
-          <li><Link to="/update">Update</Link></li>
-          <li><Link to="/profile">Profile</Link></li>
-          {
-            auth ? <li><Link to="/signup" onClick={logout} >Logout</Link></li>
-              :
-              <>
-                <li><Link to="/signup">Signup</Link></li>
-                <li><Link to="/login">Login</Link></li>
-              </>
+          <li><Link to="/">Home</Link></li>
+          <li><Link to="/cart">Cart</Link></li>
+
+          {auth ?
+            <>
+              <li><Link to="/profile">Profile</Link></li>
+              <li><Link to="/signup" onClick={logout} >Logout</Link></li>
+            </>
+            :
+            <>
+              <li><Link to="/signup">Signup</Link></li>
+              <li><Link to="/login">Login</Link></li>
+            </>
           }
         </ul>
       </div>
