@@ -5,6 +5,7 @@ import Navbar from './Components/Navbar';
 import Footer from './Components/Footer';
 import Signup from './Components/Signup';
 import PrivateComponent from './Components/PrivateComponent';
+import Login from './Components/Login';
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
           </Route>
 
           <Route exact path="/signup" element={<Signup />} />
+          <Route exact path='/login' element={<Login/>}/>
         </Routes>
         <Footer />
       </BrowserRouter>

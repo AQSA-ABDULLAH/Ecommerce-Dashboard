@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, Navigate, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './Navbar.css';
 
 const Navbar = () => {
@@ -31,6 +31,7 @@ const Navbar = () => {
                 <li><Link to="/add_new">Add New</Link></li>
                 <li><Link to="/update">Update</Link></li>
                 <li><Link to="/profile">Profile</Link></li>
+                <li><Link to="/login">Login</Link></li>
                 <li>{ auth? <Link to="/signup" onClick={logout} >Logout</Link>
                 :
                 <Link to="/signup">Signup</Link>}</li>
