@@ -1,12 +1,37 @@
-import React, {useState} from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect} from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const handelLoginData = () => {
+    const navigate = useNavigate();
+
+    const handelLoginData = async (e) => {
         console.warn(email, password);
+        e.preventDefault();
+        let result = await fetch('http://localhost:4000/login', {
+            method: 'post',
+            body: JSON.stringify({ email, password }),
+            headers: {
+                'Content-Type': 'application/json'
+            },
+        });
+        result = await result.json();
+        if (result.name) {
+            localStorage.setItem("user", JSON.stringify(result));
+            navigate('/');
+        } else {
+            alert("Plz enter correct details");
+        }
     }
+
+    useEffect(()=>{
+        const auth = localStorage.getItem('user');
+        if(auth){
+          navigate('/')
+        }
+      })
+
     return (
         <div className='container' id="login">
             <form onSubmit={handelLoginData}>
