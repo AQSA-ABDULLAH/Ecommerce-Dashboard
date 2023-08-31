@@ -1,32 +1,29 @@
 /* -----------  NAVBAR STYLE -------------- */
-.navbar{
-    top: 0;
-    left: 0;
-    position: sticky;
-    z-index: 100;
+.navbar {
+    border-bottom: 2px solid #ccc;
 }
+
+/* ---------   SIDEBAR STYEL -------------- */
 
 .logo{
     text-decoration: none;
     font-size: 2rem;
     font-style: italic;
     font-weight: 700;
-    padding-left: 1.2rem;
-}
-
-/* ---------   SIDEBAR STYEL -------------- */
-.sidebar{
-    top: 0;
-    left: 0;
-    position: sticky;
-    z-index: 100;
+    /* padding-left:1.5rem;
+    margin: 0.5rem; */
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #d8d7d7;
+    display: block;
+  text-align: center;
 }
 
 .nav-links{
     list-style: none;
     padding: 0;
     margin: 0;
-    padding-left: 1.2rem;
+    padding: 1.2rem;
+    height: 90vh;
 }
 
 .nav-links li{
@@ -39,3 +36,17 @@
     color: #fff;
     text-decoration: none;
 }
+
+
+/* ---------   ADD PRODUCT  -------------- */
+/* Style.css */
+
+.col-2 {
+    padding-right: 0;
+  }
+  
+  .col-10 {
+    padding-left: 0; 
+  }
+ 
+  

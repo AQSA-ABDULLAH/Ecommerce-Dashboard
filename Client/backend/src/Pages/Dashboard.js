@@ -2,7 +2,8 @@ import React from 'react';
 import './Style.css';
 import Sidebar from '../Components/Sidebar';
 import Navbar from '../Components/Navbar';
-export default function AddProducts() {
+
+export default function Dashboard() {
   return (
     <div>
       <div class="row">
@@ -12,7 +13,7 @@ export default function AddProducts() {
         <div class="col-10" >
           <Navbar/>
           <div>
-            Add products
+            Dashboard
           </div>
         </div>
       </div>
