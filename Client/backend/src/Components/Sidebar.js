@@ -1,26 +1,16 @@
 import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import { Link } from 'react-router-dom';
+import './Style.css';
 
 const Sidebar = () => {
   return (
-    <div className="sidebar">
+    <div className="sidebar bg-success" style={{ width: '200px', height: '900px' }}>
       <nav id="sidebar">
-        <div className="sidebar-header">
-          <h3>My Sidebar</h3>
-        </div>
-        <ul className="list-unstyled components">
-          <li className="active">
-            <a href="#">Home</a>
-          </li>
-          <li>
-            <a href="#">About</a>
-          </li>
-          <li>
-            <a href="#">Services</a>
-          </li>
-          <li>
-            <a href="#">Contact</a>
-          </li>
+        <ul className="nav-links list-unstyled components text-white">
+        <li><Link to="/">Dashboard</Link></li>
+          <li><Link to="/add_product">Add Products</Link></li>
+          <li><Link to="/">Home</Link></li>
+          <li><Link to="/">Cart</Link></li>
         </ul>
       </nav>
     </div>
@@ -28,4 +18,5 @@ const Sidebar = () => {
 };
 
 export default Sidebar;
+
 
