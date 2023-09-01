@@ -131,3 +131,7 @@
 form{
     text-align: left;
 }
+
+#carousel{
+    max-height: 500px;
+  }
