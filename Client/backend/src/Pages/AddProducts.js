@@ -8,11 +8,10 @@ import Navbar from '../Components/Navbar';
 export default function AddProducts() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+  const [category, setCategory] = useState("");
   const [price, setPrice] = useState("");
   const [image, setImage] = useState();
   const navigate = useNavigate();
-
-  console.log(image, 12)
 
   const handleClick = () => {
 
@@ -20,6 +19,7 @@ export default function AddProducts() {
     formData.append('image', image)
     formData.append('title', title)
     formData.append('description', description)
+    formData.append('category', category)
     formData.append('price', price)
     
     axios.post('http://localhost:4000/add_product', formData,
@@ -62,6 +62,12 @@ export default function AddProducts() {
                 <input type="text" className="form-control" id="exampleInputDes"
                   value={description}
                   onChange={(e) => setDescription(e.target.value)} />
+              </div>
+              <div className="mb-3">
+                <label className="form-label">Category</label>
+                <input type="text" className="form-control" id="exampleInputCat"
+                  value={category}
+                  onChange={(e) => setCategory(e.target.value)} />
               </div>
               <div className="mb-3">
                 <label className="form-label">Price</label>
