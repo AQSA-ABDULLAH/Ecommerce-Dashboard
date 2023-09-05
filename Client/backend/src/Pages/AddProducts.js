@@ -1,35 +1,32 @@
 import React, { useState } from 'react';
-import { useNavigate} from 'react-router-dom';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 import './Style.css';
 import Sidebar from '../Components/Sidebar';
 import Navbar from '../Components/Navbar';
 
 export default function AddProducts() {
   const [title, setTitle] = useState("");
-  const [des, setDes] = useState("");
+  const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
-  const [image, setImage]=useState();
+  // const [image, setImage]=useState();
   const navigate = useNavigate();
 
-  const uploadImage = (e) =>{
-    console.log(e.target.file);
-    setImage(e.target.file);
-  }
-
-  const collectData = async (e) => {
-    e.preventDefault();
-    let result = await fetch('http://localhost:4000/add_product', {
-      method: 'post',
-      body: JSON.stringify({ title, des, price }),
-      headers: {
-        'Content-Type': 'application/json'
-      },
-    });
-    result = await result.json();
-    // localStorage.setItem("product", JSON.stringify(result));
-    console.log(result)
+  const handleClick = () => {
+    axios.post('http://localhost:4000/add_product',{
+      title : title,
+      description : description,
+      price : price
+    })
+    .then((res)=>{
+      console.log(res.data)
+    })
+    .catch(err=>{
+      console.log(err, "err")
+    })
     navigate('/');
   }
+
   return (
     <div>
       <div className="row">
@@ -39,31 +36,33 @@ export default function AddProducts() {
         <div className="col-10" >
           <Navbar />
           <div className='container'>
-            <form onSubmit={collectData}>
+            <form>
               <h2 className='text-center pt-3'>ADD NEW PRODUCT</h2>
-              <div className="mb-3">
-                <input type="file" accept='image/' className="form-control"
-                onChange={uploadImage}/>
-              </div>
+              {/* <div className="mb-3">
+                <input type="file" className="form-control"
+                onChange={ (e)=> setImage(e.target.files[0]) }/>
+              </div> */}
               <div className="mb-3">
                 <label className="form-label">Title</label>
                 <input type="text" className="form-control" id="exampleInputname"
-                value={title}
-                onChange={(e) => setTitle(e.target.value)}/>
+                  value={title}
+                  onChange={(e) => setTitle(e.target.value)} />
               </div>
               <div className="mb-3">
                 <label className="form-label">Description</label>
-                <input type="email" className="form-control" id="exampleInputEmail1"
-                value={des}
-                onChange={(e) => setDes(e.target.value)}/>
+                <input type="text" className="form-control" id="exampleInputDes"
+                  value={description}
+                  onChange={(e) => setDescription(e.target.value)} />
               </div>
               <div className="mb-3">
                 <label className="form-label">Price</label>
                 <input type="int" className="form-control" id="exampleInputPassword1"
-                value={price}
-                onChange={(e) => setPrice(e.target.value)}/>
+                  value={price}
+                  onChange={(e) => setPrice(e.target.value)} />
               </div>
-              <button type="submit" className="btn btn-success">ADD PRODUCT</button>
+              <button type="submit" className="btn btn-success"
+                onClick={handleClick}>
+                ADD PRODUCT</button>
             </form>
           </div>
         </div>
