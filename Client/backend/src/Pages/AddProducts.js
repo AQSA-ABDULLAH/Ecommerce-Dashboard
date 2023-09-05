@@ -22,9 +22,11 @@ export default function AddProducts() {
     formData.append('description', description)
     formData.append('price', price)
     
-    axios.post('http://localhost:4000/add_product', {
-      formData
-    })
+    axios.post('http://localhost:4000/add_product', formData,
+      {
+        headers: {"Content-Type": "multipart/form-data"},
+      }
+    )
       .then((res) => {
         console.log(res.data)
       })

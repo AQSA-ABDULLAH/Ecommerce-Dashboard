@@ -4,11 +4,12 @@ const Product = require('./Models/Product');
 
 const express = require('express');
 const app = express();
+app.use(express.json());
 
 const cors = require('cors');
-
-app.use(express.json());
 app.use(cors());
+
+const multer  = require('multer');
 
 
 // Registration Route
@@ -33,7 +34,19 @@ app.post("/login", async(req, res)=>{
 });
 
 // Add Products Route
-app.post("/add_product", async(req, res)=>{
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+      cb(null, 'uploads/')
+    },
+    filename: function (req, file, cb) {
+      const uniqueSuffix = Date.now();
+      cb(null, uniqueSuffix + file.originalname)
+    }
+  })
+
+  const upload = multer({ storage: storage })
+
+app.post("/add_product",upload.single("image"), async(req, res)=>{
     let product = new Product(req.body);
     let result = await product.save();
     res.send(result);
