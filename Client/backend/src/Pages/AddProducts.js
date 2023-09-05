@@ -9,21 +9,28 @@ export default function AddProducts() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
-  // const [image, setImage]=useState();
+  const [image, setImage] = useState();
   const navigate = useNavigate();
 
+  console.log(image, 12)
+
   const handleClick = () => {
-    axios.post('http://localhost:4000/add_product',{
-      title : title,
-      description : description,
-      price : price
+
+    const formData = new FormData();
+    formData.append('image', image)
+    formData.append('title', title)
+    formData.append('description', description)
+    formData.append('price', price)
+    
+    axios.post('http://localhost:4000/add_product', {
+      formData
     })
-    .then((res)=>{
-      console.log(res.data)
-    })
-    .catch(err=>{
-      console.log(err, "err")
-    })
+      .then((res) => {
+        console.log(res.data)
+      })
+      .catch(err => {
+        console.log(err, "err")
+      })
     navigate('/');
   }
 
@@ -38,10 +45,10 @@ export default function AddProducts() {
           <div className='container'>
             <form>
               <h2 className='text-center pt-3'>ADD NEW PRODUCT</h2>
-              {/* <div className="mb-3">
+              <div className="mb-3">
                 <input type="file" className="form-control"
-                onChange={ (e)=> setImage(e.target.files[0]) }/>
-              </div> */}
+                  onChange={(e) => setImage(e.target.files[0])} />
+              </div>
               <div className="mb-3">
                 <label className="form-label">Title</label>
                 <input type="text" className="form-control" id="exampleInputname"
