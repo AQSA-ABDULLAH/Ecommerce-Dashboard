@@ -6,7 +6,7 @@ import Footer from './Components/Footer';
 import Signup from './Components/Signup';
 import PrivateComponent from './Components/PrivateComponent';
 import Login from './Components/Login';
-import Cart from './Components/Cart';
+import Cart from './Pages/Cart';
 import Home from './Pages/Home';
 
 
